@@ -65,6 +65,8 @@ enyo.kind({
 	/* AJAX */
 	handleSuccess: function(inSender, inResponse) {
 		this.results = inResponse.shots;
+		this.index = 0;
+		this.$.carousel.snapTo(this.index);
 		this.$.carousel.setCenterView(this.getViewInfo(this.index));
 	},
 	handleFailure: function(inSender, inResponse) {
