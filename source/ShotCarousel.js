@@ -19,7 +19,7 @@ enyo.kind({
 			onSnapFinish: "snapFinish"
 		},
 		{name: "getShots", kind: "WebService",
-			url: "data/everyone",
+			url: "",
 			onSuccess: "handleSuccess",
 			onFailure: "handleFailure"},
 	],
@@ -58,7 +58,7 @@ enyo.kind({
 	/* BUTTONS */
 	listToggled: function(inSender) {
 		this.log("Selected button" + inSender.getValue());
-		this.$.getShots.setUrl("data/" + inSender.getValue());
+		this.$.getShots.setUrl("http://api.dribbble.com/shots/" + inSender.getValue() + "?per_page=30");
 		this.$.getShots.call();
 	},
 	
