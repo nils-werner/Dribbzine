@@ -6,10 +6,10 @@ enyo.kind({
 		{kind:"Header", components: [
 			{content: "Dribbblr"},
 			{kind: "Spacer"},
-			{kind: "RadioToolButtonGroup", components: [
-				{label: "Popular"},
-				{label: "Everyone"},
-				{label: "Debuts"}
+			{kind: "RadioToolButtonGroup", onChange: "listToggled", value:"popular", components: [
+				{label: "Popular", name:"defaultbutton", value:"popular"},
+				{label: "Everyone", value:"everyone"},
+				{label: "Debuts", value:"debuts"}
 			]}
 		]},
 		{name: "carousel", kind: "Carousel", flex: 1, 
@@ -26,7 +26,7 @@ enyo.kind({
 	create: function() {
 		this.results = [];
 		this.inherited(arguments);
-		this.$.getShots.call();
+		this.listToggled(this.$.defaultbutton);
 		this.index = 0;
 	},
 	resizeHandler: function(inSender, e) {
@@ -55,6 +55,12 @@ enyo.kind({
 		this.log(v.kindName + ": " + (v.headerContent || v.content));
 	},
 	
+	/* BUTTONS */
+	listToggled: function(inSender) {
+		this.log("Selected button" + inSender.getValue());
+		this.$.getShots.setUrl("data/" + inSender.getValue());
+		this.$.getShots.call();
+	},
 	
 	/* AJAX */
 	handleSuccess: function(inSender, inResponse) {
