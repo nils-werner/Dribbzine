@@ -1,26 +1,31 @@
 /* Copyright 2009-2011 Hewlett-Packard Development Company, L.P. All rights reserved. */
 enyo.kind({
-	name: "CanonView",
+	name: "ShotView",
 	kind: enyo.VFlexBox,
 	published: {
-		headerContent: "",
-		bodyColor: ""
+		items: []
 	},
 	components: [
-		{kind: "Header"},
-		{kind: "Scroller", flex: 1, components: [
-			{name: "body"}
+		{kind: "HFlexBox", flex: 1, pack: "stretch", components: [
+			{kind: "VFlexBox", flex: 1, pack: "stretch", components: [
+				{kind:"Header", name: "title0", content: ""},
+				{kind:"Image", name: "image0", src: "", flex: 1}
+			]},
+			{kind: "VFlexBox", flex: 1, pack: "stretch", components: [
+				{kind:"Header", name: "title1", content: ""},
+				{kind:"Image", name: "image1", src: "", flex: 1}
+			]}
 		]}
 	],
 	create: function() {
 		this.inherited(arguments);
-		this.headerContentChanged();
-		this.bodyColorChanged();
+		this.itemsChanged();
 	},
-	headerContentChanged: function() {
-		this.$.header.setContent(this.headerContent);
-	},
-	bodyColorChanged: function() {
-		this.$.body.applyStyle("background-color", this.bodyColor);
+	itemsChanged: function() {
+		this.$.title0.setContent(this.items[0].title);
+		this.$.title1.setContent(this.items[1].title);
+		
+		this.$.image0.setSrc("/home/nils/Desktop/Skifahren/IMG_2752.JPG");
+		this.$.image1.setSrc("/home/nils/Desktop/Skifahren/IMG_2752.JPG");
 	}
 });
