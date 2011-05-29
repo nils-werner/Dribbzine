@@ -3,7 +3,15 @@ enyo.kind({
 	name: "ShotCarousel",
 	kind: enyo.VFlexBox,
 	components: [
-		{kind:"Header", content: "Dribbblr"},
+		{kind:"Header", components: [
+			{content: "Dribbblr"},
+			{kind: "Spacer"},
+			{kind: "RadioToolButtonGroup", components: [
+				{label: "Popular"},
+				{label: "Everyone"},
+				{label: "Debuts"}
+			]}
+		]},
 		{name: "carousel", kind: "Carousel", flex: 1, 
 			onGetLeft: "getLeft", 
 			onGetRight: "getRight",
