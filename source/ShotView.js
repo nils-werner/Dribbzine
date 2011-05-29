@@ -9,11 +9,11 @@ enyo.kind({
 		{kind: "HFlexBox", flex: 1, components: [
 			{kind: "VFlexBox", flex: 1, components: [
 				{kind:"Image", name: "image0", height: "200px", width: "300px", src: "", flex: 1},
-				{kind:"Header", name: "title0", content: ""}
+				{kind:"Header", name: "title0", pack:"center", content: ""}
 			]},
 			{kind: "VFlexBox", flex: 1, components: [
 				{kind:"Image", name: "image1", height: "200px", width: "300px", src: "", flex: 1},
-				{kind:"Header", name: "title1", content: ""}
+				{kind:"Header", name: "title1", pack:"center", content: ""}
 			]}
 		]}
 	],
