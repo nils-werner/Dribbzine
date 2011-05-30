@@ -7,6 +7,7 @@ enyo.kind({
 			{kind:"Image", "src":"images/ball-small.png", style: "margin-right: 10px;"},
 			{content: "Dribbblr"},
 			{kind: "Spacer"},
+			{kind: "Spinner", name:"spinner", className: "spinner"},
 			{kind: "RadioToolButtonGroup", onChange: "listToggled", value:"popular", components: [
 				{label: "Popular", name:"defaultbutton", value:"popular"},
 				{label: "Everyone", value:"everyone"},
@@ -26,8 +27,7 @@ enyo.kind({
 		},
 		{kind: "Scrim", name:"scrim", layoutKind: "VFlexLayout", align:"center", pack:"center", components: [
 			{kind: "SpinnerLarge", name:"spinnerlarge"},
-		]},
-		{kind: "Spinner", name:"spinner"}
+		]}
 	],
 	create: function() {
 		this.results = [];
@@ -35,6 +35,7 @@ enyo.kind({
 		this.listToggled(this.$.defaultbutton);
 		this.index = 0;
 		this.inrequest = false;
+		this.$.spinner.show();
 	},
 	resizeHandler: function(inSender, e) {
 		this.inherited(arguments);
