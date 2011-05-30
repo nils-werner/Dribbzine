@@ -3,7 +3,7 @@ enyo.kind({
 	name: "ShotCarousel",
 	kind: enyo.VFlexBox,
 	components: [
-		{kind:"Header", components: [
+		{kind:"Header", height: "60px", components: [
 			{kind:"Image", "src":"images/ball-small.png", style: "margin-right: 10px;"},
 			{content: "Dribbblr"},
 			{kind: "Spacer"},
