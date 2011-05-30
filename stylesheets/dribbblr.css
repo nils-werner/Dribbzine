@@ -1,0 +1,19 @@
+.frame {
+	background-image: url(../images/frame.png);
+	background-position: 50% 49.5%;
+	background-repeat: no-repeat;
+}
+
+.image {
+	border: 1px solid rgba(0,0,0,0.1);
+}
+
+.shotview {
+	background-image: url(../images/noise.png);
+}
+
+.title {
+	text-align: center;
+	font-size: 80%;
+	opacity: .5;
+}

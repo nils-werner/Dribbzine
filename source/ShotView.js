@@ -6,19 +6,23 @@ enyo.kind({
 		items: []
 	},
 	components: [
-		{kind: "HFlexBox", flex: 1, components: [
-			{kind: "VFlexBox", flex: 1, align:"center",  components: [
-				{kind: "HFlexBox", flex: 5, pack:"center", align:"center", components: [
-					{kind:"Image", name: "image0", height: "200px", width: "300px", src: "", flex: 1}
+		{kind: "HFlexBox", className: "shotview", flex: 1, components: [
+			{kind: "VFlexBox", flex: 1, align:"stretch",  components: [
+				{kind: "HFlexBox", flex: 5, pack:"center", align:"center",
+					className:"frame",
+					components: [
+					{kind:"Image", name: "image0", className: "image", height: "200px", width: "300px", src: "", flex: 1}
 				]},
-				{name: "title0", flex: 1,pack:"center", content: ""}
+				{name: "title0", flex: 1, className:"title", content: ""}
 			]},
 			
-			{kind: "VFlexBox", flex: 1, align:"center",  components: [
-				{kind: "HFlexBox", flex: 5, pack:"center", align:"center", components: [
-					{kind:"Image", name: "image1", height: "200px", width: "300px", src: "", flex: 1}
+			{kind: "VFlexBox", flex: 1, align:"stretch",  components: [
+				{kind: "HFlexBox", flex: 5, pack:"center", align:"center",
+					className:"frame",
+					components: [
+					{kind:"Image", name: "image1", className: "image", height: "200px", width: "300px", src: "", flex: 1}
 				]},
-				{name: "title1", flex: 1,pack:"center", content: ""}
+				{name: "title1", flex: 1, className:"title", content: ""}
 			]},
 		]}
 	],

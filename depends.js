@@ -2,5 +2,6 @@
 enyo.depends(
 	"source/ShotView.js",
 	"source/ShotCarousel.js",
-	"source/ShotService.js"
+	"source/ShotService.js",
+	"stylesheets/dribbblr.css"
 );
