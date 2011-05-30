@@ -35,7 +35,6 @@ enyo.kind({
 		this.listToggled(this.$.defaultbutton);
 		this.index = 0;
 		this.inrequest = false;
-		this.$.spinner.show();
 	},
 	resizeHandler: function(inSender, e) {
 		this.inherited(arguments);
