@@ -71,10 +71,6 @@ enyo.kind({
 	/* BUTTONS */
 	listToggled: function(inSender) {
 		this.log("Selected button" + inSender.getValue());
-		if(this.results && this.results.length > 0) {
-			this.$.carousel.snapTo(0);
-			this.index = 0;
-		}
 		this.$.getShots.setPage(1);
 		this.$.getShots.setList(inSender.getValue());
 		this.$.scrim.show();
@@ -92,6 +88,10 @@ enyo.kind({
 	/* AJAX */
 	handleSuccess: function(inSender, inResponse) {
 		if(inSender.page == 1) {
+			if(this.results && this.results.length > 0) {
+				this.$.carousel.snapTo(0);
+				this.index = 0;
+			}
 			console.log("Creating new results");
 			this.results = inResponse.shots;
 			this.$.carousel.setCenterView(this.getViewInfo(this.index));
