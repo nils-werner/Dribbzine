@@ -3,7 +3,7 @@
 #
 #
 
-PACKAGE = de.obsessive-media.webos.typewriter
+PACKAGE = de.obsessive-media.webos.dribbblr
 DEVICE = tcp
 
 .PHONY: web
