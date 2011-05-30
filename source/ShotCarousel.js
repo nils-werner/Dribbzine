@@ -30,6 +30,7 @@ enyo.kind({
 		this.inherited(arguments);
 		this.listToggled(this.$.defaultbutton);
 		this.index = 0;
+		this.inrequest = false;
 	},
 	resizeHandler: function(inSender, e) {
 		this.inherited(arguments);
@@ -37,7 +38,8 @@ enyo.kind({
 	},
 	getViewInfo: function(inIndex) {
 		//console.log(inIndex);
-		if(this.results.length - inIndex < 10) {
+		if(this.results.length - inIndex < 10 && !this.inrequest) {
+			this.inrequest = true;
 			this.listApproachingEnd();
 		}
 		
@@ -65,6 +67,11 @@ enyo.kind({
 	/* BUTTONS */
 	listToggled: function(inSender) {
 		this.log("Selected button" + inSender.getValue());
+		if(this.results && this.results.length > 0) {
+			this.$.carousel.snapTo(0);
+			this.index = 0;
+		}
+		this.$.getShots.setPage(1);
 		this.$.getShots.setList(inSender.getValue());
 		this.$.getShots.call();
 	},
@@ -87,6 +94,7 @@ enyo.kind({
 			for(i in inResponse.shots)
 				this.results.push(inResponse.shots[i]);
 		}
+		this.inrequest = false;
 	},
 	handleFailure: function(inSender, inResponse) {
 		console.log("got failure from getShots");
