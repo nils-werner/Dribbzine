@@ -4,6 +4,7 @@ enyo.kind({
 	kind: enyo.VFlexBox,
 	components: [
 		{kind:"Header", components: [
+			{kind:"Image", "src":"images/ball-small.png", style: "margin-right: 10px;"},
 			{content: "Dribbblr"},
 			{kind: "Spacer"},
 			{kind: "RadioToolButtonGroup", onChange: "listToggled", value:"popular", components: [
