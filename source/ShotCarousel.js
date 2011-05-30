@@ -24,6 +24,10 @@ enyo.kind({
 			onSuccess: "handleSuccess",
 			onFailure: "handleFailure"
 		},
+		{kind: "Scrim", name:"scrim", layoutKind: "VFlexLayout", align:"center", pack:"center", components: [
+			{kind: "SpinnerLarge", name:"spinnerlarge"},
+		]},
+		{kind: "Spinner", name:"spinner"}
 	],
 	create: function() {
 		this.results = [];
@@ -73,12 +77,15 @@ enyo.kind({
 		}
 		this.$.getShots.setPage(1);
 		this.$.getShots.setList(inSender.getValue());
+		this.$.scrim.show();
+		this.$.spinnerlarge.show();
 		this.$.getShots.call();
 	},
 	
 	listApproachingEnd: function() {
 		this.log("List approaching end");
 		this.$.getShots.incPage();
+		this.$.spinner.show();
 		this.$.getShots.call();
 	},
 	
@@ -95,6 +102,9 @@ enyo.kind({
 				this.results.push(inResponse.shots[i]);
 		}
 		this.inrequest = false;
+		this.$.scrim.hide();
+		this.$.spinner.hide();
+		this.$.spinnerlarge.hide();
 	},
 	handleFailure: function(inSender, inResponse) {
 		console.log("got failure from getShots");

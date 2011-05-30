@@ -7,14 +7,19 @@ enyo.kind({
 	},
 	components: [
 		{kind: "HFlexBox", flex: 1, components: [
-			{kind: "VFlexBox", flex: 1, components: [
-				{kind:"Image", name: "image0", height: "200px", width: "300px", src: "", flex: 1},
-				{kind:"Header", name: "title0", pack:"center", content: ""}
+			{kind: "VFlexBox", flex: 1, align:"center",  components: [
+				{kind: "HFlexBox", flex: 5, pack:"center", align:"center", components: [
+					{kind:"Image", name: "image0", height: "200px", width: "300px", src: "", flex: 1}
+				]},
+				{name: "title0", flex: 1,pack:"center", content: ""}
 			]},
-			{kind: "VFlexBox", flex: 1, components: [
-				{kind:"Image", name: "image1", height: "200px", width: "300px", src: "", flex: 1},
-				{kind:"Header", name: "title1", pack:"center", content: ""}
-			]}
+			
+			{kind: "VFlexBox", flex: 1, align:"center",  components: [
+				{kind: "HFlexBox", flex: 5, pack:"center", align:"center", components: [
+					{kind:"Image", name: "image1", height: "200px", width: "300px", src: "", flex: 1}
+				]},
+				{name: "title1", flex: 1,pack:"center", content: ""}
+			]},
 		]}
 	],
 	create: function() {
