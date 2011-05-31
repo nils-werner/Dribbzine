@@ -13,11 +13,18 @@ enyo.kind({
 	
 	setList: function(inList) {
 		this.list = inList;
+		this.validateList();
 		this.setUrl();
+	},
+	
+	validateList: function() {
+		if(this.username == "" && this.list == "following")
+			this.list = "popular";
 	},
 	
 	setUser: function(inUser) {
 		this.username = inUser;
+		this.validateList();
 	},
 	
 	setPage: function(inPage) {
@@ -36,14 +43,11 @@ enyo.kind({
 	},
 	
 	setUrl: function(inUrl) {
-		if(this.username != "" && this.list == "following") {
+		if(this.list == "following") {
 			var url = "http://api.dribbble.com/players/" + this.username + "/shots/following?per_page=" + this.per_page + "&page=" + this.page;
 		}
 		else {
-			if(this.list != "following")
-				var url = "http://api.dribbble.com/shots/" + this.list + "?per_page=" + this.per_page + "&page=" + this.page;
-			else
-				var url = "http://api.dribbble.com/shots/popular?per_page=" + this.per_page + "&page=" + this.page;
+			var url = "http://api.dribbble.com/shots/" + this.list + "?per_page=" + this.per_page + "&page=" + this.page;
 		}
 		this.url = inUrl || url;
 	}

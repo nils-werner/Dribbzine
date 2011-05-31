@@ -42,11 +42,12 @@ enyo.kind({
 		{kind: "ShotCookie", name:"cookie"}
 	],
 	create: function() {
-		this.results = [];
 		this.inherited(arguments);
+		this.results = [];
 		this.index = 0;
 		this.inrequest = false;
 		this.thereismore = true;
+		this.username = "";
 		this.orientation = this.fixRotation(enyo.getWindowOrientation());
 	},
 	ready: function() {
@@ -54,12 +55,17 @@ enyo.kind({
 			this.username = "phoque";
 		else
 			this.username = this.$.cookie.getCookie();
-		if(this.username && this.username != "") {
-			this.$.getShots.setUser(this.username);
+		
+		this.validateUser();
+	},
+	validateUser: function() {
+		this.$.getShots.setUser(this.username);
+		if(this.username != "") {
 			this.$.follbutton.setShowing(true);
 			this.listToggled(this.$.follbutton);
 		}
 		else {
+			this.$.follbutton.setShowing(false);
 			this.listToggled(this.$.popbutton);
 		}
 	},
@@ -70,9 +76,10 @@ enyo.kind({
 		this.$.login.usernameChanged();
 	},
 	handleSubmit: function(inSender, inEvent) {
-		this.$.loginpopup.close();
+		this.username = inEvent.value;
 		this.$.cookie.setCookie(inEvent.value);
-		this.$.getShots.setUser(inEvent.value);
+		this.$.loginpopup.close();
+		this.validateUser();
 	},
 	
 	resizeHandler: function(inSender, e) {
