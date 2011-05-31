@@ -50,7 +50,10 @@ enyo.kind({
 		this.orientation = this.fixRotation(enyo.getWindowOrientation());
 	},
 	ready: function() {
-		this.username = this.$.cookie.getCookie();
+		if(runningInBrowser)
+			this.username = "phoque";
+		else
+			this.username = this.$.cookie.getCookie();
 		if(this.username && this.username != "") {
 			this.$.getShots.setUser(this.username);
 			this.$.follbutton.setShowing(true);
