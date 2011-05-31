@@ -5,6 +5,6 @@
 	"type": "web",
 	"main": "index.html",
 	"title": "Dribbblr",
-	"icon": "images/ball.png",
+	"icon": "images/ball-noshad.png",
 	"uiRevision": 2
 }
