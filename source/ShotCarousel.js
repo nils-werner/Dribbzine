@@ -83,17 +83,17 @@ enyo.kind({
 			this.listApproachingEnd();
 		}
 		
-		if(this.results.length == 0) {
+		if(this.results.length == 0) { // show hint if there is no data
 			if(this.thereismore) {
 				this.thereismore = false;
 				return {kind: "NoShotView"};
 			}
-			else {
+			else { // disable scrolling for hint
 				return false;
 			}
 		}
 		else {
-			if(inIndex >= 0 && inIndex+1 < this.results.length) {
+			if(inIndex >= 0 && inIndex+1 < this.results.length) { // there is more data, show it!
 				if(this.orientation == "up" || this.orientation == "down") {
 					return {kind: "HShotView", items: [this.results[inIndex], this.results[inIndex+1] ]};
 				}
@@ -101,7 +101,7 @@ enyo.kind({
 					return {kind: "VShotView", items: [this.results[inIndex], this.results[inIndex+1] ]};
 				}
 			}
-			else {
+			else { // there is no more data
 				return false;
 			}
 		}
