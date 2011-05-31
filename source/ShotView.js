@@ -11,7 +11,7 @@ enyo.kind({
 				{kind: "HFlexBox", flex: 5, pack:"center", align:"center",
 					className:"frame",
 					components: [
-					{kind:"Image", name: "image0", className: "image", height: "200px", width: "300px", src: "", flex: 1}
+					{kind:"Image", name: "image0", className: "image", height: "300px", width: "400px", src: "", flex: 1}
 				]},
 				{name: "title0", flex: 1, className:"title", content: ""}
 			]},
@@ -20,7 +20,7 @@ enyo.kind({
 				{kind: "HFlexBox", flex: 5, pack:"center", align:"center",
 					className:"frame",
 					components: [
-					{kind:"Image", name: "image1", className: "image", height: "200px", width: "300px", src: "", flex: 1}
+					{kind:"Image", name: "image1", className: "image", height: "300px", width: "400px", src: "", flex: 1}
 				]},
 				{name: "title1", flex: 1, className:"title", content: ""}
 			]},
