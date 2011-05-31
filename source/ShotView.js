@@ -6,7 +6,7 @@ enyo.kind({
 		items: []
 	},
 	components: [
-		{kind: "HFlexBox", className: "shotview", flex: 1, components: [
+		{kind: "VFlexBox", className: "shotview", flex: 1, components: [
 			{kind: "VFlexBox", flex: 1, align:"stretch",  components: [
 				{kind: "HFlexBox", flex: 5, pack:"center", align:"center",
 					className:"frame",
