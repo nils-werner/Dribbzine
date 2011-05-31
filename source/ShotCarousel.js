@@ -34,7 +34,7 @@ enyo.kind({
 			{kind: "ShotLogin", name:"login", onSubmit: "handleSubmit"}
 		]},
 		{kind: "AppMenu", components: [
-			{caption: "Set Username", onclick: "openLogin"}
+			{caption: "Username...", onclick: "openLogin"}
 		]},
 		{kind: enyo.ApplicationEvents, 
 			onWindowRotated: "rotate"
