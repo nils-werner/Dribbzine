@@ -28,7 +28,10 @@ enyo.kind({
 		},
 		{kind: "Scrim", name:"scrim", layoutKind: "VFlexLayout", align:"center", pack:"center", components: [
 			{kind: "SpinnerLarge", name:"spinnerlarge"},
-		]}
+		]},
+		{kind: enyo.ApplicationEvents, 
+			onWindowRotated: "rotate"
+		}
 	],
 	create: function() {
 		this.results = [];
@@ -36,6 +39,7 @@ enyo.kind({
 		this.listToggled(this.$.defaultbutton);
 		this.index = 0;
 		this.inrequest = false;
+		this.orientation = enyo.getWindowOrientation();
 	},
 	resizeHandler: function(inSender, e) {
 		this.inherited(arguments);
@@ -48,10 +52,17 @@ enyo.kind({
 			this.listApproachingEnd();
 		}
 		
-		if(inIndex >= 0 && inIndex+1 < this.results.length)
-			return {kind: "ShotView", items: [this.results[inIndex], this.results[inIndex+1] ]};
-		else
+		if(inIndex >= 0 && inIndex+1 < this.results.length) {
+			if(this.orientation == "up" || this.orientation == "down") {
+				return {kind: "HShotView", items: [this.results[inIndex], this.results[inIndex+1] ]};
+			}
+			else {
+				return {kind: "VShotView", items: [this.results[inIndex], this.results[inIndex+1] ]};
+			}
+		}
+		else {
 			return false;
+		}
 	},
 	getLeft: function(inSender, inSnap) {
 		inSnap && (this.index = this.index-2);
@@ -109,5 +120,10 @@ enyo.kind({
 	},
 	handleFailure: function(inSender, inResponse) {
 		console.log("got failure from getShots");
+	},
+	
+	rotate: function(inSender, inEvent) {
+		this.orientation = inEvent.orientation;
+		this.$.carousel.setCenterView(this.getViewInfo(this.index));
 	}
 });
