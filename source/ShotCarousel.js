@@ -4,9 +4,9 @@ enyo.kind({
 	kind: enyo.VFlexBox,
 	className: "shotcarousel",
 	components: [
-		{kind:"Header", height: "60px", components: [
+		{kind:"Header", className:"header", height: "60px", components: [
 			{kind:"Image", "src":"images/ball-small.png", style: "margin-right: 10px;"},
-			{content: "Dribbblr"},
+			{content: "Dribbblr", className:"headtitle"},
 			{kind: "Spacer"},
 			{kind: "Spinner", name:"spinner", className: "spinner"},
 			{kind: "RadioToolButtonGroup", onChange: "listToggled", value:"popular", components: [

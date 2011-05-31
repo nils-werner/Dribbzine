@@ -4,6 +4,15 @@
 	background-repeat: no-repeat;
 }
 
+.header {
+	background-image: url(../images/sharkskin.gif);
+	-webkit-border-image: none;
+}
+
+.headtitle {
+	color: #ffffff;
+}
+
 .image {
 
 }
