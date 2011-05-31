@@ -7,5 +7,7 @@ enyo.depends(
 	"source/HShotView.js",
 	"source/ShotCarousel.js",
 	"source/ShotService.js",
+	"source/ShotLogin.js",
+	"source/ShotCookie.js",
 	"stylesheets/dribbblr.css"
 );

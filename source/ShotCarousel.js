@@ -29,18 +29,39 @@ enyo.kind({
 		{kind: "Scrim", name:"scrim", layoutKind: "VFlexLayout", align:"center", pack:"center", components: [
 			{kind: "SpinnerLarge", name:"spinnerlarge"},
 		]},
+		{kind: "Popup", name:"loginpopup", components: [
+			{kind: "ShotLogin", name:"login", onSubmit: "handleSubmit"}
+		]},
+		{kind: "AppMenu", components: [
+			{caption: "Set Username", onclick: "openLogin"}
+		]},
 		{kind: enyo.ApplicationEvents, 
 			onWindowRotated: "rotate"
-		}
+		},
+		{kind: "ShotCookie", name:"cookie"}
 	],
 	create: function() {
 		this.results = [];
 		this.inherited(arguments);
-		this.listToggled(this.$.defaultbutton);
 		this.index = 0;
 		this.inrequest = false;
 		this.orientation = this.fixRotation(enyo.getWindowOrientation());
 	},
+	ready: function() {
+		this.username = this.$.cookie.getCookie();
+		this.listToggled(this.$.defaultbutton);
+	},
+	
+	openLogin: function() {
+		this.$.loginpopup.openAtCenter();
+		this.$.login.username = this.$.cookie.getCookie();
+		this.$.login.usernameChanged();
+	},
+	handleSubmit: function(inSender, inEvent) {
+		this.$.loginpopup.close();
+		this.$.cookie.setCookie(inEvent.value);
+	},
+	
 	resizeHandler: function(inSender, e) {
 		this.inherited(arguments);
 		this.$.carousel.resize();
