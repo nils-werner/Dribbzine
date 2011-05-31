@@ -9,8 +9,9 @@ enyo.kind({
 			{content: "Dribbblr", className:"headtitle"},
 			{kind: "Spacer"},
 			{kind: "Spinner", name:"spinner", className: "spinner"},
-			{kind: "RadioToolButtonGroup", onChange: "listToggled", value:"popular", components: [
-				{label: "Popular", name:"defaultbutton", value:"popular"},
+			{kind: "RadioToolButtonGroup", name:"listtype", onChange: "listToggled", value:0, components: [
+				{label: "Following", name:"follbutton", value:"following", showing: false},
+				{label: "Popular", name:"popbutton", value:"popular"},
 				{label: "Everyone", value:"everyone"},
 				{label: "Debuts", value:"debuts"}
 			]}
@@ -49,7 +50,14 @@ enyo.kind({
 	},
 	ready: function() {
 		this.username = this.$.cookie.getCookie();
-		this.listToggled(this.$.defaultbutton);
+		if(this.username && this.username != "") {
+			this.$.getShots.setUser(this.username);
+			this.$.follbutton.setShowing(true);
+			this.listToggled(this.$.follbutton);
+		}
+		else {
+			this.listToggled(this.$.popbutton);
+		}
 	},
 	
 	openLogin: function() {
@@ -60,6 +68,7 @@ enyo.kind({
 	handleSubmit: function(inSender, inEvent) {
 		this.$.loginpopup.close();
 		this.$.cookie.setCookie(inEvent.value);
+		this.$.getShots.setUser(inEvent.value);
 	},
 	
 	resizeHandler: function(inSender, e) {
@@ -104,6 +113,7 @@ enyo.kind({
 	/* BUTTONS */
 	listToggled: function(inSender) {
 		this.log("Selected button" + inSender.getValue());
+		this.$.listtype.setValue(inSender.getValue());
 		this.$.getShots.setPage(1);
 		this.$.getShots.setList(inSender.getValue());
 		this.$.scrim.show();
