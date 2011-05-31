@@ -39,7 +39,7 @@ enyo.kind({
 		this.listToggled(this.$.defaultbutton);
 		this.index = 0;
 		this.inrequest = false;
-		this.orientation = enyo.getWindowOrientation();
+		this.orientation = this.fixRotation(enyo.getWindowOrientation());
 	},
 	resizeHandler: function(inSender, e) {
 		this.inherited(arguments);
@@ -123,7 +123,21 @@ enyo.kind({
 	},
 	
 	rotate: function(inSender, inEvent) {
-		this.orientation = inEvent.orientation;
+		this.orientation = this.fixRotation(inEvent.orientation);
 		this.$.carousel.setCenterView(this.getViewInfo(this.index));
+	},
+	
+	fixRotation: function(rotation) {
+		if(rotation == "up" || rotation == "down") {
+			if(runningInBrowser) {
+				rotation = "left";
+			}
+		}
+		else {
+			if(runningInBrowser) {
+				rotation = "up";
+			}
+		}
+		return rotation;
 	}
 });
