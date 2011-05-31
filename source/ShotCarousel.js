@@ -137,9 +137,15 @@ enyo.kind({
 				this.index = 0;
 			}
 			console.log("Creating new results");
-			this.results = inResponse.shots;
-			this.$.carousel.setCenterView(this.getViewInfo(this.index));
-			this.thereismore = true;
+			if(inResponse.shots) {
+				this.results = inResponse.shots;
+				this.$.carousel.setCenterView(this.getViewInfo(this.index));
+				this.thereismore = true;
+			}
+			else {
+				this,results = [];
+				this.thereismore = false;
+			}
 		}
 		else {
 			if(inResponse.shots.length > 0) {
