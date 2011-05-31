@@ -5,6 +5,7 @@ runningInBrowser = window.runningInBrowser ? window.runningInBrowser : (window.P
 enyo.depends(
 	"source/VShotView.js",
 	"source/HShotView.js",
+	"source/NoShotView.js",
 	"source/ShotCarousel.js",
 	"source/ShotService.js",
 	"source/ShotLogin.js",

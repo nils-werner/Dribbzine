@@ -26,3 +26,9 @@
 	font-size: 80%;
 	opacity: .5;
 }
+
+.subtlehint {
+	opacity: 0.3;
+	margin-top: -10%;
+	font-size: 120%;
+}

@@ -83,16 +83,27 @@ enyo.kind({
 			this.listApproachingEnd();
 		}
 		
-		if(inIndex >= 0 && inIndex+1 < this.results.length) {
-			if(this.orientation == "up" || this.orientation == "down") {
-				return {kind: "HShotView", items: [this.results[inIndex], this.results[inIndex+1] ]};
+		if(this.results.length == 0) {
+			if(this.thereismore) {
+				this.thereismore = false;
+				return {kind: "NoShotView"};
 			}
 			else {
-				return {kind: "VShotView", items: [this.results[inIndex], this.results[inIndex+1] ]};
+				return false;
 			}
 		}
 		else {
-			return false;
+			if(inIndex >= 0 && inIndex+1 < this.results.length) {
+				if(this.orientation == "up" || this.orientation == "down") {
+					return {kind: "HShotView", items: [this.results[inIndex], this.results[inIndex+1] ]};
+				}
+				else {
+					return {kind: "VShotView", items: [this.results[inIndex], this.results[inIndex+1] ]};
+				}
+			}
+			else {
+				return false;
+			}
 		}
 	},
 	getLeft: function(inSender, inSnap) {
