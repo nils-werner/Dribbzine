@@ -1,11 +1,11 @@
 .frame {
 	background-image: url(../images/frame.png);
-	background-position: 50% 49.5%;
+	background-position: 50% 49.3%;
 	background-repeat: no-repeat;
 }
 
 .image {
-	border: 1px solid rgba(0,0,0,0.1);
+
 }
 
 .shotcarousel {
