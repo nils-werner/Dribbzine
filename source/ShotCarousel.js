@@ -46,6 +46,7 @@ enyo.kind({
 		this.inherited(arguments);
 		this.index = 0;
 		this.inrequest = false;
+		this.thereismore = true;
 		this.orientation = this.fixRotation(enyo.getWindowOrientation());
 	},
 	ready: function() {
@@ -77,7 +78,7 @@ enyo.kind({
 	},
 	getViewInfo: function(inIndex) {
 		//console.log(inIndex);
-		if(this.results.length - inIndex < 10 && !this.inrequest) {
+		if(this.results.length - inIndex < 10 && !this.inrequest && this.thereismore) {
 			this.inrequest = true;
 			this.listApproachingEnd();
 		}
@@ -138,11 +139,17 @@ enyo.kind({
 			console.log("Creating new results");
 			this.results = inResponse.shots;
 			this.$.carousel.setCenterView(this.getViewInfo(this.index));
+			this.thereismore = true;
 		}
 		else {
-			console.log("Appending to results");
-			for(i in inResponse.shots)
-				this.results.push(inResponse.shots[i]);
+			if(inResponse.shots.length > 0) {
+				console.log("Appending to results");
+				for(i in inResponse.shots)
+					this.results.push(inResponse.shots[i]);
+			}
+			else {
+				this.thereismore = false;
+			}
 		}
 		this.inrequest = false;
 		this.$.scrim.hide();
