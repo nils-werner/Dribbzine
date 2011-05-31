@@ -88,7 +88,7 @@ enyo.kind({
 	},
 	getViewInfo: function(inIndex) {
 		//console.log(inIndex);
-		if(this.results.length - inIndex < 10 && !this.inrequest && this.thereismore) {
+		if(this.results.length - inIndex < 6 && !this.inrequest && this.thereismore) {
 			this.inrequest = true;
 			this.listApproachingEnd();
 		}

@@ -6,7 +6,7 @@ enyo.kind({
 		list: "popular",
 		username: "",
 		page: "1",
-		per_page: "30",
+		per_page: "20",
 		onSuccess: "",
 		onFailure: ""
 	},
