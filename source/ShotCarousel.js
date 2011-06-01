@@ -56,7 +56,7 @@ enyo.kind({
 		else
 			this.username = this.$.cookie.getCookie() || "";
 		
-		this.validateUser();
+		enyo.nextTick(enyo.bind(this, "validateUser"));
 	},
 	validateUser: function() {
 		this.$.getShots.setUser(this.username);
