@@ -54,7 +54,7 @@ enyo.kind({
 		if(runningInBrowser)
 			this.username = "phoque";
 		else
-			this.username = this.$.cookie.getCookie();
+			this.username = this.$.cookie.getCookie() || "";
 		
 		this.validateUser();
 	},
@@ -72,12 +72,12 @@ enyo.kind({
 	
 	openLogin: function() {
 		this.$.loginpopup.openAtCenter();
-		this.$.login.username = this.$.cookie.getCookie();
+		this.$.login.username = this.username;
 		this.$.login.usernameChanged();
 	},
 	handleSubmit: function(inSender, inEvent) {
 		this.username = inEvent.value;
-		this.$.cookie.setCookie(inEvent.value);
+		this.$.cookie.setCookie(this.username);
 		this.$.loginpopup.close();
 		this.validateUser();
 	},
