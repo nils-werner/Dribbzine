@@ -8,7 +8,8 @@ enyo.kind({
 		page: "1",
 		per_page: "20",
 		onSuccess: "",
-		onFailure: ""
+		onFailure: "",
+		timeout: 3000
 	},
 	
 	setList: function(inList) {

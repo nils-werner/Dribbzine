@@ -89,10 +89,12 @@ enyo.kind({
 	},
 	getViewInfo: function(inIndex) {
 		//console.log(inIndex);
-		if(this.results.length - inIndex < 6 && !this.inrequest && this.thereismore) {
+		if(this.results.length > 0 && this.results.length - inIndex < 6 && !this.inrequest && this.thereismore) {
 			this.inrequest = true;
 			this.listApproachingEnd();
 		}
+		
+		console.log(this.results.length);
 		
 		if(this.results.length == 0) { // show hint if there is no data
 			if(this.thereismore) {
@@ -168,6 +170,8 @@ enyo.kind({
 				this,results = [];
 				this.thereismore = false;
 			}
+			this.$.scrim.hide();
+			this.$.spinnerlarge.hide();
 		}
 		else {
 			if(inResponse.shots.length > 0) {
@@ -178,14 +182,27 @@ enyo.kind({
 			else {
 				this.thereismore = false;
 			}
+			this.$.spinner.hide();
 		}
 		this.inrequest = false;
-		this.$.scrim.hide();
-		this.$.spinner.hide();
-		this.$.spinnerlarge.hide();
 	},
 	handleFailure: function(inSender, inResponse) {
 		console.log("got failure from getShots");
+		console.log(inSender.page);
+		if(inSender.page == 1) {
+			this.results = [];
+			this.index = 0;
+			this.thereismore = true;
+			this.$.carousel.snapTo(0);
+			this.$.scrim.hide();
+			this.$.spinnerlarge.hide();
+		}
+		else {
+			this.thereismore = false;
+			this.$.spinner.hide();
+		}
+		this.$.carousel.setCenterView(this.getViewInfo(this.index));
+		this.inrequest = false;
 	},
 	
 	rotate: function(inSender, inEvent) {
