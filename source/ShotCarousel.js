@@ -68,6 +68,7 @@ enyo.kind({
 			this.$.follbutton.setShowing(false);
 			this.listToggled(this.$.popbutton);
 		}
+		this.$.listtype.render();
 	},
 	
 	openLogin: function() {
