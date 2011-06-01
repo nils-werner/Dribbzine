@@ -5,8 +5,8 @@ enyo.kind({
 	className: "shotcarousel",
 	components: [
 		{kind:"Header", className:"header", height: "60px", components: [
-			{kind:"Image", "src":"images/ball-small.png", style: "margin-right: 10px;"},
-			{content: "Dribbblr", className:"headtitle"},
+			{kind:"Image", "src":"images/doubleball.png", style: "margin-right: 10px; margin-top: -5px;"},
+			{content: "Doubbble", className:"headtitle"},
 			{kind: "Spacer"},
 			{kind: "Spinner", name:"spinner", className: "spinner"},
 			{kind: "RadioToolButtonGroup", name:"listtype", onChange: "listToggled", value:0, components: [

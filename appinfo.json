@@ -1,10 +1,10 @@
 {
-	"id": "de.obsessive-media.webos.dribbblr",
+	"id": "de.obsessive-media.webos.doubbble",
 	"version": "1.0.0",
 	"vendor": "Obsessive Media",
 	"type": "web",
 	"main": "index.html",
-	"title": "Dribbblr",
-	"icon": "images/ball-noshad.png",
+	"title": "Doubbble",
+	"icon": "images/doubleball.png",
 	"uiRevision": 2
 }
