@@ -1,10 +1,10 @@
 {
-	"id": "de.obsessive-media.webos.doubbble",
+	"id": "de.obsessive-media.webos.doubble",
 	"version": "1.0.0",
 	"vendor": "Obsessive Media",
 	"type": "web",
 	"main": "index.html",
-	"title": "Doubbble",
+	"title": "Doubble",
 	"icon": "images/doubleball.png",
 	"uiRevision": 2
 }
