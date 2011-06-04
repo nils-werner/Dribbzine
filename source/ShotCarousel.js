@@ -48,26 +48,38 @@ enyo.kind({
 		this.inrequest = false;
 		this.thereismore = true;
 		this.username = "";
+		this.firstuse = false;
 		this.orientation = this.fixRotation(enyo.getWindowOrientation());
 	},
 	ready: function() {
-		if(runningInBrowser)
-			this.username = "phoque";
-		else
-			this.username = this.$.cookie.getCookie() || "";
+		if(runningInBrowser) {
+			this.firstuse = true;
+			this.username = "";
+		}
+		else {
+			this.firstuse = this.$.cookie.getFirstuse();
+			this.username = this.$.cookie.getUsername() || "";
+		}
 		
 		enyo.nextTick(enyo.bind(this, "validateUser"));
 	},
 	validateUser: function() {
 		this.$.getShots.setUser(this.username);
-		if(this.username != "") {
+		if(this.username != "" || this.firstuse == true) {
 			this.$.follbutton.setShowing(true);
-			this.listToggled(this.$.follbutton);
 		}
 		else {
 			this.$.follbutton.setShowing(false);
+
+		}
+		
+		if(this.username != "") {
+			this.listToggled(this.$.follbutton);
+		}
+		else {
 			this.listToggled(this.$.popbutton);
 		}
+		
 		this.$.listtype.render();
 	},
 	
@@ -78,7 +90,7 @@ enyo.kind({
 	},
 	handleSubmit: function(inSender, inEvent) {
 		this.username = inEvent.value;
-		this.$.cookie.setCookie(this.username);
+		this.$.cookie.setUsername(this.username);
 		this.$.loginpopup.close();
 		this.validateUser();
 	},
@@ -138,6 +150,10 @@ enyo.kind({
 	/* BUTTONS */
 	listToggled: function(inSender) {
 		this.log("Selected button" + inSender.getValue());
+		if(this.username == "" && inSender.getValue() == "following") {
+			this.openLogin();
+			return;
+		}
 		this.$.listtype.setValue(inSender.getValue());
 		this.$.getShots.setPage(1);
 		this.$.getShots.setList(inSender.getValue());

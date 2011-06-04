@@ -9,6 +9,7 @@ enyo.kind({
 		onSubmit: "",
 	},
 	components: [
+		{content: "Please enter your username below"},
 		{kind: "Input", hint: "Username", name:"username", 
 			spellcheck: false,
 			autocorrect: false,

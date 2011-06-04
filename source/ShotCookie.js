@@ -3,10 +3,18 @@ enyo.kind({
 	name: "ShotCookie",
 	kind: enyo.Control,
 	components: [],
-	setCookie: function(value) {
-		enyo.setCookie("userInfo", value);
+	setUsername: function(value) {
+		enyo.setCookie("username", value);
 	},
-	getCookie: function() {
-		return enyo.getCookie("userInfo");
+	getUsername: function() {
+		return enyo.getCookie("username");
+	},
+	getFirstuse: function() {
+		console.log("test");
+		if(typeof(enyo.getCookie("username")) == "undefined") {
+			enyo.setCookie("firstuse", true);
+			return true;
+		}
+		return false;
 	}
 });

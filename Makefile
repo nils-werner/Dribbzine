@@ -3,7 +3,7 @@
 #
 #
 
-PACKAGE = de.obsessive-media.webos.doubbble
+PACKAGE = de.obsessive-media.webos.doubble
 DEVICE = tcp
 
 .PHONY: web
