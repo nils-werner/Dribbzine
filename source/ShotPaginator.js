@@ -4,7 +4,7 @@ enyo.kind({
 	published: {
 		page: "",
 		total: "",
-		content: "test",
+		content: "",
 	},
 	setPage: function(inPage) {
 		console.log("paginator p" + inPage);
@@ -17,6 +17,6 @@ enyo.kind({
 		this.updateContent();
 	},
 	updateContent: function(inContent) {
-		this.setContent((this.page/2) + "/" + (this.total/2));
+		this.setContent((this.page/2) + " of " + (this.total/2));
 	}
 });
