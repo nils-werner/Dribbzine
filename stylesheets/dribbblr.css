@@ -32,3 +32,8 @@
 	margin-top: -10%;
 	font-size: 120%;
 }
+
+.smallhint {
+	opacity: 0.4;
+	font-size: 80%;
+}

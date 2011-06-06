@@ -30,11 +30,9 @@ enyo.kind({
 		{kind: "Scrim", name:"scrim", layoutKind: "VFlexLayout", align:"center", pack:"center", components: [
 			{kind: "SpinnerLarge", name:"spinnerlarge"},
 		]},
-		{kind: "Popup", name:"loginpopup", components: [
-			{kind: "ShotLogin", name:"login", onSubmit: "handleSubmit"}
-		]},
+		{kind: "ShotLogin", name:"login", onSubmit: "handleSubmit"},
 		{kind: "AppMenu", components: [
-			{caption: "Username...", onclick: "openLogin"}
+			{caption: "Login...", onclick: "openLogin"}
 		]},
 		{kind: enyo.ApplicationEvents, 
 			onWindowRotated: "rotate"
@@ -84,14 +82,14 @@ enyo.kind({
 	},
 	
 	openLogin: function() {
-		this.$.loginpopup.openAtCenter();
+		this.$.login.openAtCenter();
 		this.$.login.username = this.username;
 		this.$.login.usernameChanged();
 	},
 	handleSubmit: function(inSender, inEvent) {
 		this.username = inEvent.value;
 		this.$.cookie.setUsername(this.username);
-		this.$.loginpopup.close();
+		this.$.login.close();
 		this.validateUser();
 	},
 	
