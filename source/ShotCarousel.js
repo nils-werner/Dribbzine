@@ -22,6 +22,12 @@ enyo.kind({
 			onSnap: "snap",
 			onSnapFinish: "snapFinish"
 		},
+		{kind: "HFlexBox", components: [
+			{kind: "Spacer", flex: 1},
+			{kind:"Button", caption:"prev", onclick: "goLeft"},
+			{kind:"Button", caption:"next", onclick: "goRight"},
+			{kind: "Spacer", flex: 1}
+		]},
 		{name: "getShots", kind: "ShotService",
 			url: "",
 			onSuccess: "handleSuccess",
@@ -129,6 +135,12 @@ enyo.kind({
 			}
 		}
 	},
+	goRight: function() {
+		this.$.carousel.next();
+	},
+	goLeft: function() {
+		this.$.carousel.previous();
+	},
 	getLeft: function(inSender, inSnap) {
 		inSnap && (this.index = this.index-2);
 		return this.getViewInfo(this.index-2);
@@ -171,7 +183,7 @@ enyo.kind({
 	handleSuccess: function(inSender, inResponse) {
 		if(inSender.page == 1) {
 			if(this.results && this.results.length > 0) {
-				this.$.carousel.snapTo(0);
+				this.$.carousel.previous();
 				this.index = 0;
 			}
 			console.log("Creating new results");
