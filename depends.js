@@ -10,5 +10,6 @@ enyo.depends(
 	"source/ShotService.js",
 	"source/ShotLogin.js",
 	"source/ShotCookie.js",
+	"source/ShotPaginator.js",
 	"stylesheets/dribbblr.css"
 );

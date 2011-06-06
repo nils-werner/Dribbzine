@@ -24,8 +24,7 @@ enyo.kind({
 		},
 		{kind: "HFlexBox", components: [
 			{kind: "Spacer", flex: 1},
-			{kind:"Button", caption:"prev", onclick: "goLeft"},
-			{kind:"Button", caption:"next", onclick: "goRight"},
+			{kind:"ShotPaginator", name:"paginator", className:"paginator"},
 			{kind: "Spacer", flex: 1}
 		]},
 		{name: "getShots", kind: "ShotService",
@@ -110,7 +109,7 @@ enyo.kind({
 			this.listApproachingEnd();
 		}
 		
-		console.log(this.results.length);
+		//console.log(inIndex);
 		
 		if(this.results.length == 0) { // show hint if there is no data
 			if(this.thereismore) {
@@ -135,12 +134,6 @@ enyo.kind({
 			}
 		}
 	},
-	goRight: function() {
-		this.$.carousel.next();
-	},
-	goLeft: function() {
-		this.$.carousel.previous();
-	},
 	getLeft: function(inSender, inSnap) {
 		inSnap && (this.index = this.index-2);
 		return this.getViewInfo(this.index-2);
@@ -151,10 +144,11 @@ enyo.kind({
 	},
 	snap: function() {
 		//this.log();
+		console.log(this.index);
 	},
 	snapFinish: function() {
 		var v = this.$.carousel.fetchCurrentView();
-		//this.log(v.kindName + ": " + (v.headerContent || v.content));
+		this.$.paginator.setPage(this.index);
 	},
 	
 	/* BUTTONS */
@@ -211,6 +205,7 @@ enyo.kind({
 			this.$.spinner.hide();
 		}
 		this.inrequest = false;
+		this.$.paginator.setTotal(this.results.length);
 	},
 	handleFailure: function(inSender, inResponse) {
 		console.log("got failure from getShots");

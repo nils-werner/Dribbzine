@@ -21,10 +21,14 @@
 	background-image: url(../images/noise.png);
 }
 
-.title {
+.title, .paginator {
 	text-align: center;
 	font-size: 80%;
 	opacity: .5;
+}
+
+.paginator {
+	opacity: .2;
 }
 
 .subtlehint {
