@@ -2,8 +2,8 @@ enyo.kind({
 	name: "ShotPaginator",
 	kind: enyo.HtmlContent,
 	published: {
-		page: "",
-		total: "",
+		page: 0,
+		total: 0,
 		content: "",
 	},
 	setPage: function(inPage) {
@@ -17,6 +17,6 @@ enyo.kind({
 		this.updateContent();
 	},
 	updateContent: function(inContent) {
-		this.setContent((this.page/2) + " of " + (this.total/2));
+		this.setContent(((this.page/2)+1) + " of " + (this.total/2));
 	}
 });

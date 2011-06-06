@@ -190,6 +190,7 @@ enyo.kind({
 				this,results = [];
 				this.thereismore = false;
 			}
+			this.$.paginator.setPage(0);
 			this.$.scrim.hide();
 			this.$.spinnerlarge.hide();
 		}
