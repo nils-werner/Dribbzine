@@ -5,7 +5,7 @@ enyo.kind({
 	className: "shotcarousel",
 	components: [
 		{kind:"Header", className:"header", height: "60px", components: [
-			{kind:"Image", "src":"images/splashicon46.png", style: "margin-right: 10px; margin-top: -5px;"},
+			{kind:"Image", "src":"images/splashicon46.png", style: "margin-right: 10px; margin-top: -7px;"},
 			{content: "Bench", className:"headtitle"},
 			{kind: "Spacer"},
 			{kind: "Spinner", name:"spinner", className: "spinner"},
