@@ -93,6 +93,7 @@ enyo.kind({
 	},
 	handleSubmit: function(inSender, inEvent) {
 		this.username = inEvent.value;
+		this.firstuse = false;
 		this.$.cookie.setUsername(this.username);
 		this.$.login.close();
 		this.validateUser();
