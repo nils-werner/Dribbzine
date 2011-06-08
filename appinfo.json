@@ -5,6 +5,7 @@
 	"type": "web",
 	"main": "index.html",
 	"title": "Bench",
-	"icon": "images/wood.png",
+	"icon": "images/icon64.png",
+	"splashicon": "images/splashicon256.png",
 	"uiRevision": 2
 }

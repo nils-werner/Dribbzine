@@ -6,17 +6,20 @@
 
 .header {
 	background-image: url(../images/sharkskin.gif);
-	background-image: url(../images/wood.jpg);
 	-webkit-border-image: none;
+	
+	/*
+	background-image: url(../images/wood.jpg);
 	-webkit-border-image: url(../images/header.png) 1 0;
+	*/
 }
 
 .headtitle {
 	color: #ffffff;
-}
-
-.image {
-
+	
+	/*
+	color: #000000;
+	*/
 }
 
 .shotcarousel {
