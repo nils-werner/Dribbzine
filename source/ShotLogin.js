@@ -10,8 +10,6 @@ enyo.kind({
 		onSubmit: "",
 	},
 	components: [
-		{content: "In order to display the shots of players you are following, please enter your username below.", className: "smallhint"},
-		{kind:"Spacer", height: "20px"},
 		{kind:"RowGroup", components: [
 			{kind: "Input", hint: "Username", name:"username", 
 				spellcheck: false,
@@ -23,6 +21,8 @@ enyo.kind({
 			}
 		]},
 		{kind:"Spacer", height: "10px"},
+		{content: "You don't need to provide your password as most of your profile-data is accessible anonymously.", className: "smallhint"},
+		{kind:"Spacer", height: "20px"},
 		{kind: "HFlexBox", components: [
 			{kind: "Button", flex: 1, caption: "Reset", onclick: "resetHandler"},
 			{kind: "Button", flex: 1, caption: "Login", className: "enyo-button-dark", default: true, onclick: "buttonHandler"}
