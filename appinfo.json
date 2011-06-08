@@ -1,10 +1,10 @@
 {
-	"id": "de.obsessive-media.webos.doubble",
+	"id": "de.obsessive-media.webos.bench",
 	"version": "1.0.0",
 	"vendor": "Obsessive Media",
 	"type": "web",
 	"main": "index.html",
-	"title": "Doubble",
-	"icon": "images/doubleball.png",
+	"title": "Bench",
+	"icon": "images/wood.png",
 	"uiRevision": 2
 }
