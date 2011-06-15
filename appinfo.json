@@ -1,10 +1,10 @@
 {
-	"id": "de.obsessive-media.webos.bench",
+	"id": "de.obsessive-media.webos.dribbzine",
 	"version": "1.0.0",
 	"vendor": "Obsessive Media",
 	"type": "web",
 	"main": "index.html",
-	"title": "Bench",
+	"title": "Dribbzine",
 	"icon": "images/icon64.png",
 	"splashicon": "images/splashicon256.png",
 	"uiRevision": 2

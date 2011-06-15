@@ -6,7 +6,7 @@ enyo.kind({
 	components: [
 		{kind:"Header", className:"header", height: "60px", components: [
 			{kind:"Image", "src":"images/splashicon46.png", style: "margin-right: 10px; margin-top: -6px;"},
-			{content: "Bench", className:"headtitle"},
+			{content: "Dribbzine", className:"headtitle"},
 			{kind: "Spacer"},
 			{kind: "Spinner", name:"spinner", className: "spinner"},
 			{kind: "RadioToolButtonGroup", name:"listtype", onChange: "listToggled", value:0, components: [
