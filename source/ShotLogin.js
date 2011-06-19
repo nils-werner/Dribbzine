@@ -16,8 +16,7 @@ enyo.kind({
 				autocorrect: false,
 				autoCapitalize: "lowercase",
 				autoWordComplete: false,
-				selectAllOnFocus: true,
-				onkeypress: "keypressHandler"
+				selectAllOnFocus: true
 			}
 		]},
 		{kind:"Spacer", height: "10px"},
