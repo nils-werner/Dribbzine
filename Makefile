@@ -3,7 +3,7 @@
 #
 #
 
-PACKAGE = de.obsessive-media.webos.dribbzine
+PACKAGE = de.obsessivemedia.webos.dribbzine
 DEVICE = tcp
 
 .PHONY: web
