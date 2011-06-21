@@ -9,11 +9,11 @@ enyo.kind({
 			{content: "Dribbzine", className:"headtitle"},
 			{kind: "Spacer"},
 			{kind: "Spinner", name:"spinner", className: "spinner"},
-			{kind: "RadioToolButtonGroup", name:"listtype", onChange: "listToggled", value:0, components: [
-				{label: $L("Following"), name:"follbutton", value:"following", showing: false},
-				{label: $L("Popular"), name:"popbutton", value:"popular"},
-				{label: $L("Everyone"), value:"everyone"},
-				{label: $L("Debuts"), value:"debuts"}
+			{kind: "RadioToolButtonGroup", name:"listtype", onChange: "listToggled", value:0, width: "auto", components: [
+				{label: $L("Following"), name:"follbutton", width: "auto", value:"following", showing: false},
+				{label: $L("Popular"), name:"popbutton", width: "auto", value:"popular"},
+				{label: $L("Everyone"), value:"everyone", width: "auto"},
+				{label: $L("Debuts"), value:"debuts", width: "auto"}
 			]}
 		]},
 		{name: "carousel", kind: "Carousel", flex: 1, 
