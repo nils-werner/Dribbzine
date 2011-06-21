@@ -17,6 +17,6 @@ enyo.kind({
 		this.updateContent();
 	},
 	updateContent: function(inContent) {
-		this.setContent(((this.page/2)+1) + " of " + (this.total/2));
+		this.setContent(((this.page/2)+1) + " " + $L("of") + " " + (this.total/2));
 	}
 });
