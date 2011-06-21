@@ -5,7 +5,7 @@ enyo.kind({
 	published: {},
 	components: [
 		{kind: "VFlexBox", flex:1,  pack:"center", align:"center",  components: [
-				{content:"There is nothing to show.", className:"subtlehint"}
+				{content:$L("There is nothing to show."), className:"subtlehint"}
 		]}
 	]
 });
