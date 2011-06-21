@@ -4,7 +4,7 @@ enyo.kind({
 	published: {
 		page: 0,
 		total: 0,
-		content: "",
+		content: $L("loading"),
 	},
 	setPage: function(inPage) {
 		console.log("paginator p" + inPage);
