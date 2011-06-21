@@ -2,7 +2,7 @@
 enyo.kind({
 	name: "ShotLogin",
 	kind: enyo.ModalDialog,
-	caption: "Login",
+	caption: $L("Login"),
 	published: {
 		username: ""
 	},
@@ -20,11 +20,11 @@ enyo.kind({
 			}
 		]},
 		{kind:"Spacer", height: "10px"},
-		{content: "You don't need to provide your password as most of your profile-data is accessible anonymously.", className: "smallhint"},
+		{content: $L("You don't need to provide your password as most of your profile-data is accessible anonymously."), className: "smallhint"},
 		{kind:"Spacer", height: "20px"},
 		{kind: "HFlexBox", components: [
-			{kind: "Button", flex: 1, caption: "Reset", onclick: "resetHandler"},
-			{kind: "Button", flex: 1, caption: "Login", className: "enyo-button-dark", default: true, onclick: "buttonHandler"}
+			{kind: "Button", flex: 1, caption: $L("Reset"), onclick: "resetHandler"},
+			{kind: "Button", flex: 1, caption: $L("Login"), className: "enyo-button-dark", default: true, onclick: "buttonHandler"}
 		]}
 	],
 	keypressHandler: function(inSender, inEvent) {

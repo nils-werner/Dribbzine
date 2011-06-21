@@ -1,0 +1,10 @@
+{
+	"Login":			"Identifiant",
+	"Reset":			"Reset",
+	"Following":		"Abonnements",
+	"Popular":			"Populaire",
+	"Everyone":			"Tout",
+	"Debuts":			"Débuts",
+	
+	"You don't need to provide your password as most of your profile-data is accessible anonymously.": "Vous n'avez pas besoin de fournir votre mot de passe que la plupart de votre profil-données sont accessibles de manière anonyme."
+}

@@ -10,10 +10,10 @@ enyo.kind({
 			{kind: "Spacer"},
 			{kind: "Spinner", name:"spinner", className: "spinner"},
 			{kind: "RadioToolButtonGroup", name:"listtype", onChange: "listToggled", value:0, components: [
-				{label: "Following", name:"follbutton", value:"following", showing: false},
-				{label: "Popular", name:"popbutton", value:"popular"},
-				{label: "Everyone", value:"everyone"},
-				{label: "Debuts", value:"debuts"}
+				{label: $L("Following"), name:"follbutton", value:"following", showing: false},
+				{label: $L("Popular"), name:"popbutton", value:"popular"},
+				{label: $L("Everyone"), value:"everyone"},
+				{label: $L("Debuts"), value:"debuts"}
 			]}
 		]},
 		{name: "carousel", kind: "Carousel", flex: 1, 
@@ -37,7 +37,7 @@ enyo.kind({
 		]},
 		{kind: "ShotLogin", name:"login", onSubmit: "handleSubmit"},
 		{kind: "AppMenu", components: [
-			{caption: "Login...", onclick: "openLogin"}
+			{caption: $L("Login") + "...", onclick: "openLogin"}
 		]},
 		{kind: enyo.ApplicationEvents, 
 			onWindowRotated: "rotate"
