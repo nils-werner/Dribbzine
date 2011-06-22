@@ -11,7 +11,7 @@ enyo.kind({
 	},
 	getFirstuse: function() {
 		console.log("test");
-		if(typeof(enyo.getCookie("username")) == "undefined") {
+		if(typeof(enyo.getCookie("firstuse")) == "undefined") {
 			enyo.setCookie("firstuse", true);
 			return true;
 		}
