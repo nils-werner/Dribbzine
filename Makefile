@@ -23,6 +23,9 @@ examples:
 
 package: %.ipk
 
+usb: DEVICE = usb
+usb: install
+
 clean:
 	rm -rf *.ipk
 	- palm-install -d $(DEVICE) -r $(PACKAGE)
